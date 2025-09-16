@@ -1,28 +1,193 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vercel Test</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
-      color: #333;
-      text-align: center;
-      margin-top: 50px;
-    }
-    h1 {
-      color: #0070f3;
-    }
-    p {
-      font-size: 18px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mein Profil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            height: 90vh;
+            text-align: center;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero {
+            background-color: #0070f3;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .hero img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+
+        .info {
+            padding: 20px;
+            background-color: #ffffff;
+            flex: 1;
+            display: none;
+        }
+
+        .footer {
+            padding: 20px;
+            background-color: #0070f3;
+            color: white;
+            text-align: center;
+        }
+
+        .button {
+            background-color: #0070f3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            background-color: #005bb5;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .slide {
+            transition: opacity 1s ease-in-out;
+            opacity: 0;
+        }
+
+        .active-slide {
+            opacity: 1;
+        }
+
+        .slide-content {
+            padding: 20px;
+        }
+    </style>
 </head>
+
 <body>
-  <h1>Willkommen auf meiner Vercel-Seite!</h1>
-  <p>Dies ist eine einfache Seite, die mit Vercel gehostet wird.</p>
-  <p>Testweise erstellt und deployt mit GitHub und Vercel.</p>
+
+    <div class="container">
+        <!-- Hero Section (Profilbild und Begrüßung) -->
+        <div class="hero">
+            <h1>Willkommen auf meinem Profil</h1>
+            <p>Ich bin Max, ein Webentwickler und Technologie-Enthusiast</p>
+            <img src="https://via.placeholder.com/150" alt="Mein Foto">
+        </div>
+
+        <!-- Folien (PowerPoint-ähnlich) -->
+        <div class="info">
+            <div id="slide1" class="slide active-slide">
+                <h2>Über mich</h2>
+                <div class="slide-content">
+                    <p>Ich bin leidenschaftlich an der Entwicklung von Webseiten interessiert und arbeite gerne mit modernen Web-Technologien wie HTML, CSS, JavaScript und React.</p>
+                </div>
+            </div>
+
+            <div id="slide2" class="slide">
+                <h2>Meine Fähigkeiten</h2>
+                <div class="slide-content">
+                    <ul>
+                        <li>Frontend-Entwicklung mit React und JavaScript</li>
+                        <li>Backend-Entwicklung mit Node.js und Express</li>
+                        <li>Erfahrung mit verschiedenen Datenbanken</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="slide3" class="slide">
+                <h2>Warum ich?</h2>
+                <div class="slide-content">
+                    <p>Ich habe ein Auge für Design und eine Leidenschaft für die Schaffung benutzerfreundlicher Erlebnisse. Ich glaube daran, dass Code sowohl funktional als auch ästhetisch ansprechend sein sollte.</p>
+                </div>
+            </div>
+
+            <div id="slide4" class="slide">
+                <h2>Interessante Fakten</h2>
+                <div class="slide-content">
+                    <p>Ich bin ein begeisterter Reisen und habe bereits mehr als 10 Länder besucht! Ich liebe es, neue Kulturen kennenzulernen und zu sehen, wie Technologie auf der ganzen Welt verwendet wird.</p>
+                </div>
+            </div>
+
+            <!-- Slide Controls -->
+            <div class="navigation">
+                <button id="prev" class="button">Zurück</button>
+                <button id="next" class="button">Weiter</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2025 Max - Alle Rechte vorbehalten</p>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active-slide');
+                if (i === index) {
+                    slide.classList.add('active-slide');
+                }
+            });
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentSlide = (currentSlide === 0) ? totalSlides - 1 : currentSlide - 1;
+            showSlide(currentSlide);
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentSlide = (currentSlide === totalSlides - 1) ? 0 : currentSlide + 1;
+            showSlide(currentSlide);
+        });
+
+        // Initial Slide anzeigen
+        showSlide(currentSlide);
+    </script>
+
 </body>
+
 </html>
