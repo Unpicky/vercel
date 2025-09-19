@@ -6,7 +6,7 @@
   <title>A-Z receipts</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-[#fdf6ec] font-sans">
+<body class="bg-[#fdf6ec] font-sans flex flex-col min-h-screen">
 
   <!-- Header -->
   <header class="flex justify-between items-center px-6 py-4 bg-[#fdf1de] shadow">
@@ -25,42 +25,45 @@
     </a>
   </header>
 
-  <!-- Recipes Section -->
-  <section id="recipes" class="px-6 lg:px-20 py-16">
-    <div class="grid md:grid-cols-3 gap-12 text-center">
+  <!-- Main content wrapper -->
+  <main class="flex-grow">
+    <!-- Recipes Section -->
+    <section id="recipes" class="px-6 lg:px-20 py-16">
+      <div class="grid md:grid-cols-3 gap-12 text-center">
 
-      <!-- Okroshka -->
-      <div class="bg-[#fdf6ec]">
-        <img src="Images/okroshka.jpg" alt="Okroshka"
-             class="rounded-2xl shadow-lg w-full h-60 object-cover">
-        <h3 class="text-2xl font-semibold mt-4">Okroshka Receipt</h3>
-        <a href="okroshka.html" class="mt-4 inline-block px-4 py-2 border border-black rounded-lg hover:bg-gray-200">
-          More info
-        </a>
+        <!-- Okroshka -->
+        <div class="bg-[#fdf6ec]">
+          <img src="Images/okroshka.jpg" alt="Okroshka"
+               class="rounded-2xl shadow-lg w-full h-72 object-cover">
+          <h3 class="text-2xl font-semibold mt-4">Okroshka Receipt</h3>
+          <a href="okroshka.html" class="mt-4 inline-block px-4 py-2 border border-black rounded-lg hover:bg-gray-200">
+            More info
+          </a>
+        </div>
+
+        <!-- Pfannkuchen -->
+        <div class="bg-[#fdf6ec]">
+          <img src="Images/pfannkuchen.jpg" alt="Pfannkuchen"
+               class="rounded-2xl shadow-lg w-full h-72 object-cover">
+          <h3 class="text-2xl font-semibold mt-4">Pfannkuchen</h3>
+          <a href="pfannkuchen.html" class="mt-4 inline-block px-4 py-2 border border-black rounded-lg hover:bg-gray-200">
+            More info
+          </a>
+        </div>
+
+        <!-- Pizza -->
+        <div class="bg-[#fdf6ec]">
+          <img src="Images/pizza.jpg" alt="Pizza"
+               class="rounded-2xl shadow-lg w-full h-72 object-cover">
+          <h3 class="text-2xl font-semibold mt-4">Pizza</h3>
+          <a href="pizza.html" class="mt-4 inline-block px-4 py-2 border border-black rounded-lg hover:bg-gray-200">
+            More info
+          </a>
+        </div>
+
       </div>
-
-      <!-- Pfannkuchen -->
-      <div class="bg-[#fdf6ec]">
-        <img src="Images/pfannkuchen.jpg" alt="Pfannkuchen"
-             class="rounded-2xl shadow-lg w-full h-60 object-cover">
-        <h3 class="text-2xl font-semibold mt-4">Pfannkuchen</h3>
-        <a href="pfannkuchen.html" class="mt-4 inline-block px-4 py-2 border border-black rounded-lg hover:bg-gray-200">
-          More info
-        </a>
-      </div>
-
-      <!-- Pizza -->
-      <div class="bg-[#fdf6ec]">
-        <img src="Images/pizza.jpg" alt="Pizza"
-             class="rounded-2xl shadow-lg w-full h-60 object-cover">
-        <h3 class="text-2xl font-semibold mt-4">Pizza</h3>
-        <a href="pizza.html" class="mt-4 inline-block px-4 py-2 border border-black rounded-lg hover:bg-gray-200">
-          More info
-        </a>
-      </div>
-
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="bg-[#d1c3a4] text-center py-6">
